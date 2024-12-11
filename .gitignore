@@ -2,3 +2,7 @@ ws_urdf/install
 ws_urdf/build
 ws_urdf/log
 .vscode
+
+teamB-1_ws/install
+teamB-1_ws/build
+teamB-1_ws/log
