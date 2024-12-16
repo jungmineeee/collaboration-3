@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>633</width>
+    <height>709</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="robot1_goal_btn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>520</y>
+      <width>221</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	 background-color: rgb(153, 193, 241);  /* 버튼 배경색 */
+	border-radius: 6px;        /* 둥근 테두리 */
+	border: 1px solid rgb(119, 118, 123); /* 테두리 색상 */
+}
+
+QPushButton:hover {
+	background-color: rgb(164, 202, 247);  /* 마우스 오버 시 색상 */
+}
+
+QPushButton:pressed {
+	background-color: rgb(135, 178, 230);  /* 버튼 클릭 시 색상 */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>목표위치 재전송</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="robot1_stop_btn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>610</y>
+      <width>221</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	 background-color: rgb(255, 152, 141);  /* 버튼 배경색 */
+	border-radius: 6px;        /* 둥근 테두리 */
+	border: 1px solid rgb(119, 118, 123); /* 테두리 색상 */
+}
+
+QPushButton:hover {
+	background-color: rgb(255, 175, 167);
+}
+
+QPushButton:pressed {
+	background-color: rgb(255, 131, 118);  /* 버튼 클릭 시 색상 */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>STOP</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="title_label">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>30</y>
+      <width>411</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KacstBook</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(246, 245, 244);
+border: 1px solid gray;
+border-radius: 6px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
+    <property name="text">
+     <string>협동 방탈출 게임 컨트롤러</string>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="margin">
+     <number>3</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="camera_view">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>100</y>
+      <width>571</width>
+      <height>311</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(36, 31, 49);
+color: white;
+border-radius: 6px;</string>
+    </property>
+    <property name="text">
+     <string>Robot1's camera image</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="wall_color_label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>430</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>앞을 막고 있는 벽의 색깔</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="wall_color">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>430</y>
+      <width>371</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(192, 191, 188);
+border-radius: 6px;
+color: rgb(61, 56, 70);</string>
+    </property>
+    <property name="text">
+     <string>Nothing Detected...</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>520</y>
+      <width>321</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="blue_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	 background-color: rgb(28, 113, 216);  /* 버튼 배경색 */
+	border-radius: 6px;        /* 둥근 테두리 */
+	border: 1px solid rgb(119, 118, 123); /* 테두리 색상 */
+}
+
+QPushButton:hover {
+	background-color: rgb(41, 124, 225);
+}
+
+QPushButton:pressed {
+	background-color: rgb(18, 103, 207);  /* 버튼 클릭 시 색상 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Blue</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="green_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	 background-color: rgb(38, 162, 105);  /* 버튼 배경색 */
+	border-radius: 6px;        /* 둥근 테두리 */
+	border: 1px solid rgb(119, 118, 123); /* 테두리 색상 */
+}
+
+QPushButton:hover {
+	background-color: rgb(54, 175, 119);
+}
+
+QPushButton:pressed {
+	background-color: rgb(23, 149, 91);  /* 버튼 클릭 시 색상 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Green</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="red_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	 background-color: rgb(224, 27, 36);  /* 버튼 배경색 */
+	border-radius: 6px;        /* 둥근 테두리 */
+	border: 1px solid rgb(119, 118, 123); /* 테두리 색상 */
+}
+
+QPushButton:hover {
+	background-color: rgb(231, 42, 50);
+}
+
+QPushButton:pressed {
+	background-color: rgb(214, 16, 25);  /* 버튼 클릭 시 색상 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Red</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="yellow_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	 background-color: rgb(246, 211, 45);  /* 버튼 배경색 */
+	border-radius: 6px;        /* 둥근 테두리 */
+	border: 1px solid rgb(119, 118, 123); /* 테두리 색상 */
+}
+
+QPushButton:hover {
+	background-color: rgb(255, 223, 71);
+}
+
+QPushButton:pressed {
+	background-color: rgb(235, 199, 27);  /* 버튼 클릭 시 색상 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Yellow</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="robot1_label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>480</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>[ Robot1 ]</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="robot2_label">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>480</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>[ Robot2 ]</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -7,7 +7,7 @@ def generate_launch_description():
     gazebo_world = ExecuteProcess(
         cmd=['gazebo', '--verbose',
             '-s', 'libgazebo_ros_factory.so',
-            '-s', 'libgazebo_ros_init.so','../project_world'],
+            '-s', 'libgazebo_ros_init.so', '../project_world'],
         output='screen'
     )
     
